@@ -1,0 +1,11 @@
+# Ignore all possible venv folders
+*/venv/
+*.venv/
+.env/
+
+# Ignore Python bytecode and other temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
