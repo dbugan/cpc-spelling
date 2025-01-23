@@ -1,16 +1,23 @@
 #!/bin/bash
 
-# Our developer will choose their own environment name
-read -p "Enter a name for the virtual environment, e.g. 'venv', 'test-venv', 'dev-venv': " venv_name
+# Prompt the user to input a name for their virtual environment
+read -p "Enter a name for the virtual environment (e.g., 'venv', 'dev-venv'): " venv_name
 
 # Create the virtual environment with the name provided
 python3 -m venv "$venv_name"
 
-# Activate the virtual environment
-source "$venv_name/bin/activate"
+# Confirm a successful venv creation
+echo "Virtual environment has been created: '$venv_name'"
+
+# Automatically activate the virtual environment
+# Note: Activation works only within the current shell, so instead of activating it for the user,
+# we directly run pip install within the script.
 
 # Install dependencies from requirements.txt
-pip install -r requirements.txt
+source "$venv_name/bin/activate" && pip install -r requirements.txt
 
-# Confirm a successful setup
-echo "Virtual environment '$venv_name' has been set up and the dependencies installed"
+# Confirm successful installation
+echo "Dependencies have been installed in the virtual environment: '$venv_name'"
+
+# Optional: Inform the user how to activate the venv if needed in the future
+echo "To activate the virtual environment in the future, run: source $venv_name/bin/activate"

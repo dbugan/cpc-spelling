@@ -1,6 +1,5 @@
 # Ignore all possible venv folders
-*/venv/
-*.venv/
+*venv/
 .env/
 
 # Ignore Python bytecode and other temporary files
